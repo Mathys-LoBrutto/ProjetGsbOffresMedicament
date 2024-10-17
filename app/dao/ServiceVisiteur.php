@@ -1,6 +1,6 @@
 <?php
 
-namespace app\dao;
+namespace App\dao;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;

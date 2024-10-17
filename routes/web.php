@@ -28,3 +28,15 @@ Route::get('/getListeFrais', 'App\Http\Controllers\FraisController@getFraisVisit
 Route::get('/modifierFrais/{id}', 'App\Http\Controllers\FraisController@updateFrais');
 
 Route::post('/validerFrais', 'App\Http\Controllers\FraisController@validerFrais');
+
+Route::get('/ajouterFrais', 'App\Http\Controllers\FraisController@addFrais');
+
+Route::post('/validerFrais', 'App\Http\Controllers\FraisController@validerFrais');
+
+Route::get('/supprimerFrais/{id}', 'App\Http\Controllers\FraisController@removeFrais');
+
+Route::get('/getListeFraisHF/{id}' , 'App\Http\Controllers\FraisHFController@getFraisHF');
+
+Route::get('/modifierFraisHF/{id}', 'App\Http\Controllers\FraisHFController@updateFraisHF');
+
+Route::post('/validerFraisHF/{id}', 'App\Http\Controllers\FraisHFController@validerFraisHF');

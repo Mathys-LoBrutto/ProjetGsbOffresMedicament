@@ -28,7 +28,8 @@
                             </span></a></td>
 
                     <td style="text-align:center;">
-                    <a href="{{url('/supprFrais')}} / {{$unFrais->id_frais}}}">
+                    <a  onclick="javascript:if (confirm('Suppression confirmée ?')) {
+                    window.location='{{'/supprimerFrais'}}/{{$unFrais->id_frais}}'}">
                         <span class="glyphicon glyphicon-remove"
                               data-toggle="tooltip" data-placement="top" title="Supprimer">
 
@@ -36,4 +37,6 @@
                 </tr>
             @endforeach
         </table>
+        @include('vues/error')
     </div>
+@stop
