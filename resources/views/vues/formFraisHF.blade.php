@@ -1,10 +1,11 @@
 @extends("layouts.master")
 @section('content')
-    {!! Form::open(['url' => 'validerFraisHF/'.$unFraisHF->id_fraishorsforfait]) !!}
+    {!! Form::open(['url' => 'validerFraisHF
+/'.$unFraisHF->id_fraishorsforfait]) !!}
     <div class="col-md-12  col-sm-12 well well-md">
         <h1>{{$titreVue}} </h1>
         <div class="form-horizontal">
-            <input type="hidden" name="id_fraishorsforfait" value="{{$unFraisHF->id_fraishorsforfait}}"/>
+            <input type="hidden" name="id_fraishorsforfait" value="{{$unFraisHF->id_frais}}"/>
             <div class="form-group">
                 <label class="col-md-3 col-sm-3 control-label">Date : </label>
                 <div class="col-md-2 col-sm-2">
@@ -15,13 +16,13 @@
             <div class="form-group">
                 <label class="col-md-3 col-sm-3 control-label">Libellé : </label>
                 <div class="col-md-2 col-sm-2">
-                    <input type="text" name="lib_fraishorsforfait" value="{{$unFraisHF->lib_fraishorsforfait}}" class="form-control" placeholder="" required autofocus maxlength="7">
+                    <input type="text" name="lib_fraishorsforfait" value="{{$unFraisHF->lib_fraishorsforfait}}" class="form-control" placeholder="" >
                 </div>
             </div>
 
 
             <div class="form-group">
-                <label class="col-md-3 col-sm-3 control-label">montant : </label>
+                <label class="col-md-3 col-sm-3 control-label">Montant : </label>
                 <div class="col-md-2  col-sm-2">
                     <input type="number" name="montant_fraishorsforfait" value="{{$unFraisHF->montant_fraishorsforfait}}"  class="form-control" placeholder="montant" required min="0">
                 </div>

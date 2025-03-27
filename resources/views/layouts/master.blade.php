@@ -17,7 +17,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar+ bvn"></span>
                         </button>
-                        <a class="navbar-brand" href="{{url('/')}}">GSB Frais</a>
+                        <a class="navbar-brand" href="{{url('/')}}">GSB Medicaments</a>
                     </div>
                     @if (Session::get('id') == 0 )
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
@@ -30,8 +30,8 @@
                     @else
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{url('/getListeFrais')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Lister</a></li>
-                            <li><a href="{{url('/ajouterFrais')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>
+                            <li><a href="{{url('/formRechercheRapport')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Rapport de visite</a></li>
+                            <li><a href="{{url('/formAjoutRapport')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in"> ({{Session::get('login')}}) Se déconnecter</a></li>

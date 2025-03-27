@@ -26,7 +26,7 @@ class FraisHFController extends Controller
                     $montant += $m->montant_fraishorsforfait;
 
                 }
-                return view('vues/ListeFraisHF' , compact('mesFraisHF','montant', 'erreur'));
+                return view('vues/listeFraisHF' , compact('mesFraisHF','montant', 'erreur'));
             } catch (Exception $e) {
                 $erreur=$e->getMessage();
                 return view('vues/error',compact('erreur'));
@@ -38,7 +38,7 @@ class FraisHFController extends Controller
         $erreur = "";
         try {
             $serviceFraisHF= new serviceFraisHF;
-            $unFraisHF = $serviceFraisHF->getById($id_frais);
+            $unFraisHF = $serviceFraisHF->getByIdHF($id_frais);
             $titreVue = "Modfication d'une fiche de frais hors forfait";
             return view('vues/formFraisHF',compact('unFraisHF','titreVue'));
         } catch (Exception $e){
@@ -48,22 +48,26 @@ class FraisHFController extends Controller
         }
     }
 
+
+
+
     public function validerFraisHF(Request $request, $id){
         $erreur = "";
         try {
 
             $date_fraishorsforfait = $request->input('date_fraishorsforfait');
-            $lib_fraishorsforfait = $request->input('lib_fraishorsforfait}');
-            $montant_fraishorsforfait = $request->input('montant_fraishorsforfait}');
+            $lib_fraishorsforfait = $request->input('lib_fraishorsforfait');
+            $montant_fraishorsforfait = $request->input('montant_fraishorsforfait');
+
 
             $serviceFraisHF= new ServiceFraisHF;
             if($id > 0) {
                 $serviceFraisHF->updateFraisHF($id, $date_fraishorsforfait, $lib_fraishorsforfait, $montant_fraishorsforfait);
+
+            }else{
+                $id_visiteur = Session::get('id');
+                $serviceFraisHF->insertFraisHF($id, $date_fraishorsforfait,$lib_fraishorsforfait,$montant_fraishorsforfait);
             }
-//            }else{
-//                $id_fraishorsforfait = Session::get('id');
-//                $serviceFraisHF->insertFrais($id_fraishorsforfait,$date_fraishorsforfait,$lib_fraishorsforfait,$montant_fraishorsforfait);
-//            }
             return redirect('/getListeFraisHF/'.$id);
         }catch (Exception $e){
             $erreur=$e->getMessage();
@@ -71,5 +75,6 @@ class FraisHFController extends Controller
 
         }
     }
+
 }
 

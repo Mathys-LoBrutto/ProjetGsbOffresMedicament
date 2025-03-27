@@ -37,35 +37,42 @@ class ServiceFraisHF
         }
     }
 
-    public function updateFraisHF($id_fraishorsforfait,$date_fraishorsforfait,$lib_fraishorsforfait,$montant_fraishorsforfait){
-        try {
+    public function updatefraishf($id_fraishorsforfait,$date_fraishorsforfait,$lib_fraishorsforfait,$montant_fraishorsforfait,)
+    {
+        try{
             DB::table('fraishorsforfait')
-                ->where('id_fraishorsforfait', '=', $id_fraishorsforfait)
-                ->update([
-                    'date_fraishorsforfait'=>$date_fraishorsforfait,
-                    'lib_fraishorsforfait'=>$lib_fraishorsforfait,
-                    'montant_fraishorsforfait'=>$montant_fraishorsforfait]);
+                ->where('id_fraishorsforfait','=',$id_fraishorsforfait)
+                ->update(['date_fraishorsforfait'=>$date_fraishorsforfait,'lib_fraishorsforfait'=>$lib_fraishorsforfait ,'montant_fraishorsforfait'=>$montant_fraishorsforfait]);
         }catch (QueryException $e){
             throw new MonException($e->getMessage());
         }
     }
 
-//    public function insertFrais($id_visiteur,$anneemois,$nbjustificatif)
-//    {
-//        try {
-//            $aujourdhui = date("Y-m-d");
-//            DB::table('frais')
-//                ->insert(['datemodification'=>$aujourdhui,
-//                    'id_etat'=>2,
-//                    'id_visiteur'=>$id_visiteur,
-//                    'anneemois'=>$anneemois,
-//                    'nbjustificatifs'=>$nbjustificatif],
-//                );
-//
-//        }catch (QueryException $e){
-//            throw new MonException($e->getMessage());
-//
-//        }
-//    }
+
+    public function getByIdHF($id_fraishorsforfait){
+        try {
+            $lesFraisHF = DB::table('fraishorsforfait')
+                ->select()
+                ->where('id_fraishorsforfait', '=', $id_fraishorsforfait)
+                ->first();
+            return $lesFraisHF;
+        }catch (QueryException $e){
+            throw new MonException($e->getMessage());
+        }
+    }
+
+    public function insertFraisHF($id_fraishorsforfait, $date_fraishorsforfait, $lib_fraishorsforfait, $montant_fraishorsforfait){
+        try {
+            DB::table('fraishorsforfait')
+                ->insert(['id_fraishorsforfait'=>$id_fraishorsforfait,'date_fraishorsforfait'=>$date_fraishorsforfait, 'lib_fraishorsforfait'=>$lib_fraishorsforfait, 'montant_fraishorsforfait'=>$montant_fraishorsforfait]);
+
+        }catch (QueryException $e){
+            throw new MonException($e->getMessage());
+        }
+    }
+
+
+
+
 }
 
