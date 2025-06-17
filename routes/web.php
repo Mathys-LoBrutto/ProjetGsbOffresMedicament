@@ -44,10 +44,22 @@ Route::get('/getLogin', 'App\Http\Controllers\VisiteurController@signOut');
 Route::get('/formRechercheRapport', 'App\Http\Controllers\OffresMedicaments@AfficherFormRecherche' );
 
 Route::post('/afficherRapportVisite', 'App\Http\Controllers\OffresMedicaments@AfficherRapportVisite');
+
 Route::get('/medicament/{rapport}', [\App\Http\Controllers\OffresMedicaments::class, 'showMedicament'])->name('medicament.show');
 
 Route::get('/formAjoutRapport', 'App\Http\Controllers\OffresMedicaments@AfficherFormAjout');
 
+Route::get('/modifier/{id}/{rapport}', [\App\Http\Controllers\OffresMedicaments::class, 'edit'])->name('medicaments.edit');
+
+Route::post('/modifier', [\App\Http\Controllers\OffresMedicaments::class, 'update'])->name('medicaments.update');
+
+// Route pour supprimer un médicament
+Route::get('/medicaments/{id}/{id_rapport}', [\App\Http\Controllers\OffresMedicaments::class, 'destroy'])->name('medicaments.destroy');
+
 Route::post('/ajoutRapport', 'App\Http\Controllers\OffresMedicaments@ajouterRapport');
+
+Route::get('/formAjoutMedicamentOffert/{id}', [\App\Http\Controllers\OffresMedicaments::class, 'AfficherFormAjoutMedicamentOffert'])->name('medicaments.formAjoutMedicamentOffert');
+
+Route::post('/ajoutMedicamentOffert', [\App\Http\Controllers\OffresMedicaments::class, 'ajoutMedicamentOffert'])->name('medicaments.ajoutMedicamentOffert');
 
 

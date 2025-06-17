@@ -11,7 +11,7 @@
                     <input type="text" name="nom_praticien" class="form-control" placeholder="Nom du praticien">
                 </div>
                 <div class="col-md-4">
-                    <input type="date" name="date_rapport" class="form-control">
+                    <input type="text" name="date_rapport" class="form-control" placeholder="AAAA ou AAAA-MM-JJ">
                 </div>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-primary">Rechercher</button>
@@ -56,3 +56,9 @@
         @endif
     </div>
 @endsection
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif

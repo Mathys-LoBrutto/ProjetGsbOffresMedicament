@@ -28,11 +28,13 @@
 
 
                     @else
+                        @if (Session::get('type') == 'A')
                     <div class="collapse navbar-collapse" id="navbar-collapse-target">
                         <ul class="nav navbar-nav">
                             <li><a href="{{url('/formRechercheRapport')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Rapport de visite</a></li>
                             <li><a href="{{url('/formAjoutRapport')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>
                         </ul>
+                        @endif
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in"> ({{Session::get('login')}}) Se déconnecter</a></li>
                         </ul>

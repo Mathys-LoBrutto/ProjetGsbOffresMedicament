@@ -68,6 +68,18 @@
                 </div>
             </div>
 
+{{--            <div class="card-body">--}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="date_rapport">Médicament offert</label>--}}
+{{--                    <input type="text" class="form-control" id="medicament_offert" name="date_rapport" required>--}}
+{{--                </div>--}}
+
+{{--                <div class="form-group">--}}
+{{--                    <label for="motif">quantité offerte</label>--}}
+{{--                    <input type="text" class="form-control" id="qte" name="motif" required>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
 
 
             <div class="text-center">
